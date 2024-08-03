@@ -1,10 +1,20 @@
-<h1>RickAndMorty#index</h1>
-<table>
-    <tbody>
-        <% @list["results"].each do |one|%>
-        <tr>
+<table class="table table-dark table-striped">
+  <thead>
+    <tr>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col">Status</th>
+        <th scope="col">gender</th>
+        <th scope="col">Species</th>
+        <th scope="col">Origin</th>
+        <th scope="col">Location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @list["results"].each do |one|%>
+        <tr class="align-middle">
             <td>
-                <%= one['id']%>
+                <img src=<%= one['image']%> class="img-thumbnail" alt="...">
             </td>
             <td>
                 <%= one['name']%>
@@ -13,22 +23,18 @@
                 <%= one['status']%>
             </td>
             <td>
-                <%= one['species']%>
-            </td>
-             <td>
                 <%= one['gender']%>
             </td>
              <td>
+                <%= one['species']%>
+            </td>
+            <td>
                 <%= one['origin']%>
             </td>
              <td>
                 <%= one['location']%>
             </td>
-             <td>
-                <%= one['image']%>
-            </td>
-        <tr>
-        <% end %>
-    </tbody>
+        </tr>
+    <% end %>
+  </tbody>
 </table>
-

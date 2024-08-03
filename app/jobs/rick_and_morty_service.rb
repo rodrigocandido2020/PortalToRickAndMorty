@@ -6,7 +6,7 @@ class RickAndMortyService
     @opitons = {}
   end
 
-  def get
+  def get_characters
     self.class.get('/character', @opitons)
   end
 end
