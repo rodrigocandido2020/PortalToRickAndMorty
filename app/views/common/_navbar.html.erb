@@ -1,6 +1,6 @@
 <nav class="navbar bg-light fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="<%= rick_and_morty_path %>">
             <%= image_tag 'rick-y-morty-seeklogo.png', alt: 'rick_and_morty_logo', class: "w-40" ,height: 40 %>
             Portal Rick and Morty
         </a>
@@ -14,7 +14,9 @@
             </div>
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                    <button class="btn btn-outline-dark me-2 mt-2" type="button">Characters</button>
+                    <a class="btn btn-outline-dark me-2 mt-2" href="<%= rick_and_morty_list_path %>">
+                        Characters
+                    </a>
                     <button class="btn btn-outline-dark me-2 mt-2" type="button">About</button>
                 </ul>
             </div>

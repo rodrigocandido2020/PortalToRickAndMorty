@@ -1,6 +1,10 @@
 class RickAndMortyController < ApplicationController
   before_action :set_rinck_and_morty_service
   def index
+    # @characters_list = @rick_and_morty_service.get_characters
+  end
+
+  def list_characters
     @characters_list = @rick_and_morty_service.get_characters
   end
 
