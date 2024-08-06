@@ -1,0 +1,66 @@
+<div class="bg-dark">
+    <div class="container">
+        <div class="mt-5 p-3 mb-2 bg-dark text-white">
+            <%= form_tag(rick_and_morty_list_path, method: "get", class: "bg-dark d-flex justify-content-center mb-3 p-3") do %>
+                <div class="w-50">
+                    <%= text_field_tag :name, params[:name], class: "form-control border-success" %>
+                </div>
+                <div class="px-1">
+                    <%= submit_tag("filter", class: "btn btn-secondary") %>
+                </div>
+            <% end %>
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">gender</th>
+                        <th scope="col">Species</th>
+                        <th scope="col">Origin</th>
+                        <th scope="col">Location</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @characters_list["results"].each do |character|%>
+                        <tr class="align-middle">
+                            <td>
+                                <a href="<%= url_for(controller: 'rick_and_morty', action: 'show', id: character['id']) %>">
+                                    <img src=<%= character['image']%> class="img-thumbnail">
+                                </a>
+                            </td>
+                            <td>
+                                <%= character['name']%>
+                            </td>
+                            <td>
+                                <%= character['status']%>
+                            </td>
+                            <td>
+                                <%= character['gender']%>
+                            </td>
+                            <td>
+                                <%= character['species']%>
+                            </td>
+                            <td>
+                                <%= character['origin']['name']%>
+                            </td>
+                            <td>
+                                <%= character['location']['name']%>
+                            </td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+            <nav class="navbar navbar-dark bg-dark justify-content-center">
+                <ul class="pagination pagination-lg   ">
+                    <li class="page-item">
+                        <%= link_to "Previous", rick_and_morty_list_path(:page =>  @characters_list['info']['prev']&.gsub(/.*page=(\d+).*/, '\1'), name: params[:name]) , class: "page-link text-bg-dark"%>
+                    </li>
+                    <li class="page-item">
+                        <%= link_to "Next", rick_and_morty_list_path(:page =>  @characters_list['info']['next']&.gsub(/.*page=(\d+).*/, '\1'), name: params[:name]) , class: "page-link text-bg-dark"%>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
