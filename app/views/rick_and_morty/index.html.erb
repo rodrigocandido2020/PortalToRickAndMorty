@@ -1,3 +1,18 @@
-<div class="mt-5 p-3 mb-2 bg-dark text-white">
-    <h1> Ola mundo!!!</h1>
+<div class="container">
+    <div class="mt-5 row row-cols-md-2 g-4">
+        <% @random_characters.select do |characters|%>
+            <div class="card text-bg-light mb-3" style="max-width: 18rem;">
+                <img src=<%= characters["image"]%> class="img-thumbnail">
+                <h5>
+                    Name: <%= characters["name"]%>
+                <h5>
+                <h5>
+                    Especies: <%= characters["species"]%>
+                <h5>
+                <h5>
+                    Status: <%= characters["status"] %>
+                <h5>
+            </div>
+        <% end %>
+    </div>
 </div>
