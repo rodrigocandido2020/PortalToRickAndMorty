@@ -1,10 +1,9 @@
+# config/routes.rb
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  root "rick_and_morty#index"
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
-
-  # Defines the root path route ("/")
-  # root "posts#index"
+  get "/rick_and_morty/list", to: "rick_and_morty#list_characters", as: 'rick_and_morty_list'
+  get "/rick_and_morty/about", to: "rick_and_morty#about", as: "about"
+  get "/rick_and_morty", to: "rick_and_morty#index"
+  get "/rick_and_morty/:id", to: "rick_and_morty#show", as: 'character'
 end
