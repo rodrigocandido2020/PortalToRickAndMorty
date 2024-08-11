@@ -11,15 +11,12 @@ class RickAndMortyJob < ActiveJob::Base
     else
       page = DEFAULT_VALUE
     end
-    
     @opitons = {name: name, page: page, id: id}
   end
 
   def get_random_characters
     request = self.class.get("/character/")
-
     random_numbers = Array.new(DEFAULT_VALUE_FOR_ARRAY) { rand(DEFAULT_VALUE..request["info"]["count"]) }
-    
     self.class.get("/character/#{random_numbers.join(",")}").to_a
   end
 
