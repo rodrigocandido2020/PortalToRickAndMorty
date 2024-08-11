@@ -30,22 +30,22 @@
                                 </a>
                             </td>
                             <td>
-                                <%= character['name']%>
+                                <%= character["name"]%>
                             </td>
                             <td>
-                                <%= character['status']%>
+                                <%= character["status"]%>
                             </td>
                             <td>
-                                <%= character['gender']%>
+                                <%= character["gender"]%>
                             </td>
                             <td>
-                                <%= character['species']%>
+                                <%= character["species"]%>
                             </td>
                             <td>
-                                <%= character['origin']['name']%>
+                                <%= character["origin"]["name"]%>
                             </td>
                             <td>
-                                <%= character['location']['name']%>
+                                <%= character["location"]["name"]%>
                             </td>
                         </tr>
                     <% end %>
@@ -54,10 +54,10 @@
             <nav class="navbar navbar-dark bg-dark justify-content-center">
                 <ul class="pagination pagination-lg   ">
                     <li class="page-item">
-                        <%= link_to "Previous", rick_and_morty_list_path(:page =>  @characters_list['info']['prev']&.gsub(/.*page=(\d+).*/, '\1'), name: params[:name]) , class: "page-link text-bg-dark"%>
+                        <%= link_to "Previous", rick_and_morty_list_path(:page =>  @characters_list["info"]["prev"]&.gsub(/.*page=(\d+).*/, '\1'), name: params[:name]) , class: "page-link text-bg-dark"%>
                     </li>
                     <li class="page-item">
-                        <%= link_to "Next", rick_and_morty_list_path(:page =>  @characters_list['info']['next']&.gsub(/.*page=(\d+).*/, '\1'), name: params[:name]) , class: "page-link text-bg-dark"%>
+                        <%= link_to "Next", rick_and_morty_list_path(:page =>  @characters_list["info"]["next"]&.gsub(/.*page=(\d+).*/, '\1'), name: params[:name]) , class: "page-link text-bg-dark"%>
                     </li>
                 </ul>
             </nav>

@@ -1,14 +1,15 @@
-class RickAndMortyService
-  VALOR_PADRAO = 1.freeze
+class RickAndMortyJob < ActiveJob::Base
+  DEFAULT_VALUE = 1.freeze
+  DEFAULT_VALUE_FOR_ARRAY = 8.freeze
 
   include HTTParty
-  base_uri 'https://rickandmortyapi.com/api'
+  base_uri "https://rickandmortyapi.com/api"
   
   def initialize(page, name, id)
     if page.present?
       page = page
     else
-      page = VALOR_PADRAO
+      page = DEFAULT_VALUE
     end
     
     @opitons = {name: name, page: page, id: id}
@@ -17,7 +18,7 @@ class RickAndMortyService
   def get_random_characters
     request = self.class.get("/character/")
 
-    random_numbers = Array.new(8) { rand(VALOR_PADRAO..request['info']['count']) }
+    random_numbers = Array.new(DEFAULT_VALUE_FOR_ARRAY) { rand(DEFAULT_VALUE..request["info"]["count"]) }
     
     self.class.get("/character/#{random_numbers.join(",")}").to_a
   end

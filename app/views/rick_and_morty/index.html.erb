@@ -1,17 +1,32 @@
 <div class="container">
-    <div class="mt-5 row row-cols-md-2 g-4">
+    <div class="mt-5 ms-5 row row-cols-md-2 g-4">
         <% @random_characters.select do |characters|%>
             <div class="card text-bg-light mb-3" style="max-width: 18rem;">
                 <img src=<%= characters["image"]%> class="img-thumbnail">
-                <h5>
-                    Name: <%= characters["name"]%>
-                <h5>
-                <h5>
-                    Especies: <%= characters["species"]%>
-                <h5>
-                <h5>
-                    Status: <%= characters["status"] %>
-                <h5>
+                <div class="d-flex flex-row mb-3">
+                    <h5>
+                        Name:
+                    </h5> 
+                    <h5 class="ms-1 text-body-secondary">
+                        <%= characters["name"]%>
+                    </h5>
+                </div>
+                <div class="d-flex flex-row mb-3">
+                    <h5>
+                        Especies:
+                    </h5> 
+                    <h5 class="ms-1 text-body-secondary">
+                        <%= characters["species"]%>
+                    </h5>
+                </div>
+                <div class="d-flex flex-row mb-3">
+                    <h5>
+                        Status:
+                    </h5>
+                    <h5 class="ms-1 text-body-secondary">
+                        <%= characters["status"] %>
+                    </h5>
+                </div>
             </div>
         <% end %>
     </div>

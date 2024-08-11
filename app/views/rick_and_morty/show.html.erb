@@ -1,4 +1,29 @@
-<h1>
-    ola
-</h1>
-<%= @character %>
+<div class="container">
+    <div class="mt-5 pt-5 bg-white text-dark">
+        <div class="row ">
+            <div class="col-lg-3 col-md-4">
+                <img src=<%= @character["image"] %> class="object-fit-contain border rounded" >
+            </div>
+            <div class="col-lg-9 col-md-8">
+                <h3>
+                    <%= @character["name"] %>
+                </h3>
+                <p class="fs-5">
+                    <%= @character["status"] %>
+                </p>
+                <p class="fs-5">
+                    <%= @character["species"]%>
+                </p>
+                <p class="fs-5">
+                    <%= @character["gender"]%>
+                </p>
+                <p class="fs-5">
+                    <%= @character["location"]["name"] %>
+                </p>
+                 <p class="fs-5">
+                    <%= @character["created"].to_datetime.strftime("%m/%d/%Y") %>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
