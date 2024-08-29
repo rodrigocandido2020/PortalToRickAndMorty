@@ -54,10 +54,10 @@
             <nav class="navbar navbar-dark bg-dark justify-content-center">
                 <ul class="pagination pagination-lg   ">
                     <li class="page-item">
-                        <%= link_to "Previous", rick_and_morty_list_path(:page =>  @characters_list["info"]["prev"]&.gsub(/.*page=(\d+).*/, '\1'), name: params[:name]) , class: "page-link text-bg-dark"%>
+                        <%= link_to "Previous", rick_and_morty_list_path(:page =>  @characters_list["info"]["prev"]&.gsub(/.*page=(\d+).*/, '\1'), name: params[:name]), class: "#{!@characters_list["info"]["prev"].present? ? 'disabled page-link text-outline-dark': 'page-link text-bg-dark'}"%>
                     </li>
                     <li class="page-item">
-                        <%= link_to "Next", rick_and_morty_list_path(:page =>  @characters_list["info"]["next"]&.gsub(/.*page=(\d+).*/, '\1'), name: params[:name]) , class: "page-link text-bg-dark"%>
+                        <%= link_to "Next", rick_and_morty_list_path(:page =>  @characters_list["info"]["next"]&.gsub(/.*page=(\d+).*/, '\1'), name: params[:name]), class: "#{!@characters_list["info"]["next"].present? ? 'disabled page-link text-outline-dark': 'page-link text-bg-dark'}"%>
                     </li>
                 </ul>
             </nav>
